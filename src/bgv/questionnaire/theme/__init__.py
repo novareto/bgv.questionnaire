@@ -13,6 +13,7 @@ custom_css = Resource(library, "custom.css")
 
 
 @app.ui.register_layout(app.request_factory)
+@backend.ui.register_layout(backend.request_factory)
 class Layout:
 
     _template = TEMPLATES["layout.pt"]
@@ -30,11 +31,13 @@ class Layout:
 
 
 @app.ui.register_slot(app.request_factory, name="sitecap")
+@backend.ui.register_slot(backend.request_factory, name="sitecap")
 def sitecap(request, name, view, context):
     return TEMPLATES["sitecap.pt"].render(request=request)
 
 
 @app.ui.register_slot(app.request_factory, name="globalmenu")
+@backend.ui.register_slot(backend.request_factory, name="globalmenu")
 def globalmenu(request, name, view, context):
     actions = list(
         request.app.get_actions(request, classifiers=('global',)))
@@ -43,6 +46,7 @@ def globalmenu(request, name, view, context):
 
 
 @app.ui.register_slot(app.request_factory, name="messages")
+@backend.ui.register_slot(backend.request_factory, name="messages")
 def messages(request, name, view, context):
     utility = getattr(request, 'flash', None)
     if utility is None:
@@ -51,5 +55,6 @@ def messages(request, name, view, context):
 
 
 @app.ui.register_slot(app.request_factory, name="footer")
+@backend.ui.register_slot(backend.request_factory, name="footer")
 def footer(request, name, view, context):
     return TEMPLATES["footer.pt"].render(request=request)

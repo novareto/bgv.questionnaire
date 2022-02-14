@@ -6,9 +6,13 @@ from roughrider.routing.components import NamedRoutes
 from roughrider.application import WrappableApplication
 
 
+def new_ui(name):
+    return type(name, (UIRegistry,), {})()
+
+
 @dataclass
 class Reiter(WrappableApplication):
-    ui: UIRegistry = field(default_factory=UIRegistry)
+    ui: UIRegistry = None
     routes: NamedRoutes = field(
         default_factory=partial(NamedRoutes, extractor=routables))
 
@@ -16,5 +20,5 @@ class Reiter(WrappableApplication):
         return []
 
 
-app = Reiter()
-backend = Reiter()
+app = Reiter(ui=new_ui('BrowserUI'))
+backend = Reiter(ui=new_ui('AdminUI'))
