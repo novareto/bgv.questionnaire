@@ -1,0 +1,68 @@
+    <div class="form-group" metal:define-macro="form_group" tal:condition="exists: field" tal:attributes="id string:field-${field.id}">
+      <label tal:replace="field.label"> </label> <span tal:replace="'*'" tal:condition="field.flags.required"></span>
+      <div class="input-group has-validation">
+      <div tal:replace="structure field()"> </div>
+      <div class="invalid-feedback" tal:condition="field.errors" tal:attributes="id string:feedback-${field.id}">
+        <div tal:repeat="error field.errors">
+          <span tal:content="error" />
+        </div>
+      </div>
+      </div>
+      <small class="form-text text-muted"
+	     tal:attributes="id string:help-${field.id}"
+             tal:content="field.description"
+             tal:condition="field.description" />
+    </div>
+
+
+<span metal:define-macro="form_action" tal:condition="exists: action">
+	<button name='form.trigger' tal:attributes="value action.id; class action.css" type="submit" tal:content="action.title">HTML</button>
+</span>
+
+
+<metal:block define-macro="listing">
+<div id="searchable" tal:condition="brains">
+  <h2 tal:content="listing_title" />
+  <table class="table"
+         data-locale='de-DE'
+         data-search="true"
+         data-toggle="table"
+         data-sort-name="date"
+         data-sort-order="desc"
+         >
+    <thead>
+      <tr>
+        <th data-field="id" data-sortable="true">#</th>
+        <th data-field="title" data-sortable="true">Titel</th>
+        <th data-field="date"
+            data-sortable="true"
+            data-searchable="false">Datum</th>
+        <th data-field="state" data-searchable="false">Status</th>
+        <th data-field="actions" data-searchable="false">Aktionen</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tal:item tal:repeat="brain brains">
+      <tr>
+        <td tal:content="brain.id" />
+        <td tal:content="brain.title" />
+        <td tal:content="brain.date" />
+        <td>
+          <span data-state="${brain.state}">
+            ${brain.state}
+          </span>
+        </td>
+        <td>
+          <ul class="list-inline">
+            <li tal:repeat="action request.app.get_actions(request, context=brain)"
+                class="list-inline-item">
+              <span tal:content="action"> </span>
+            </li>
+          </ul>
+        </td>
+      </tr>
+      </tal:item>
+    </tbody>
+  </table>
+</div>
+</metal:block>

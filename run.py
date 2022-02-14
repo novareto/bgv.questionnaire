@@ -6,6 +6,7 @@ import http_session_file
 import reiter.auth.components
 import reiter.auth.filters
 import bgv.questionnaire.browser
+import bgv.questionnaire.theme
 
 from functools import partial
 from roughrider.sqlalchemy.component import SQLAlchemyEngine
@@ -14,6 +15,7 @@ from bgv.questionnaire.application import app
 
 #### Scanning the browser package
 importscan.scan(bgv.questionnaire.browser)
+importscan.scan(bgv.questionnaire.theme)
 
 
 #### Registering middlewares.

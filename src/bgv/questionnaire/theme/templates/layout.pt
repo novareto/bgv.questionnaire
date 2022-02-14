@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="de" class="h-100">
   <head>
-    <base href="${request.application_uri()}" />
+    <base href="${request.application_uri}" />
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
