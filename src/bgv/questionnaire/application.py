@@ -17,3 +17,4 @@ class Reiter(WrappableApplication):
 
 
 app = Reiter()
+backend = Reiter()

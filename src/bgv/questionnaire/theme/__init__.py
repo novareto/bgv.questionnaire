@@ -1,7 +1,7 @@
 from reiter.ui import TemplateLoader
 from fanstatic import Library, Resource, Group
 from roughrider.application.request import Request
-from bgv.questionnaire.application import app
+from bgv.questionnaire.application import app, backend
 
 
 TEMPLATES = TemplateLoader("./templates")

@@ -2,7 +2,7 @@ import wtforms
 import horseman.response
 from reiter.form import trigger
 from reiter.ui.components import FormPage
-from bgv.questionnaire.application import app
+from bgv.questionnaire.application import app, backend
 from bgv.questionnaire.browser import TEMPLATES
 
 
@@ -20,6 +20,7 @@ class Login(wtforms.Form):
 
 
 @app.routes.register('/login')
+@backend.routes.register('/login')
 class LoginForm(FormPage):
 
     title = "Anmelden"
