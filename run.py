@@ -11,6 +11,7 @@ import bgv.questionnaire.theme
 from functools import partial
 from roughrider.sqlalchemy.component import SQLAlchemyEngine
 from bgv.questionnaire.application import app
+from bgv.questionnaire.models import Base as SQLModels
 
 
 #### Scanning the browser package
@@ -69,3 +70,6 @@ app.middlewares.add(authentication, 40)
 #### Registering utilities
 app.utilities['authentication'] = authentication
 app.utilities['sql'] = sqlsession
+
+#### Create tables
+SQLModels.metadata.create_all(sqlsession.engine)

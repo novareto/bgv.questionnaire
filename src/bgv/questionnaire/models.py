@@ -1,6 +1,5 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, Text
-from sqlalchemy.orm import declarative_base
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import declarative_base, relationship
 
 
 Base = declarative_base()
@@ -34,7 +33,6 @@ class Answer(Base):
 
     id = Column(Integer, primary_key=True)
     answer = Column(String)
-
     question_id = Column(Integer, ForeignKey("question.id"))
     user_id = Column(Integer, ForeignKey("user.id"))
 
