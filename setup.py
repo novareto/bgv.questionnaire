@@ -6,6 +6,13 @@ version = "0.1"
 
 
 install_requires = [
+    "horseman",
+    "reiter.form",
+    "reiter.ui",
+    "reiter.view",
+    "roughrider.application",
+    "roughrider.routing",
+    "wtforms",
 ]
 
 test_requires = [
@@ -35,4 +42,9 @@ setup(
     extras_require={
         'test': test_requires,
     },
+    entry_points={
+        "fanstatic.libraries": [
+            "bgv.questionnaire = bgv.questionnaire.theme:library",
+        ],
+    }
 )

@@ -1,0 +1,15 @@
+--extra-index-url https://pypi.bg-kooperation.de/
+
+fanstatic
+importscan
+waitress
+roughrider.application
+roughrider.workflow
+git+https://github.com/HorsemanWSGI/roughrider.sqlalchemy.git#egg=roughrider.sqlalchemy
+reiter.form
+reiter.view
+reiter.ui
+reiter.auth
+http_session
+http_session_file
+-e .

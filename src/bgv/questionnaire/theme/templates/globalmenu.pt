@@ -1,0 +1,17 @@
+<div id="siguv-navigation" class="enabled">
+  <nav class="navbar navbar-expand-lg py-4" aria-label="hauptnavigation">
+    <div class="container">
+      <a class="navbar-brand" href="" tal:attributes="href request.application_uri()" aria-label="Startseite">
+        <img src="static/reha.siguv_theme/bg-etem.svg" alt="Logo der BG ETEM" />
+      </a>
+      <ul class="navbar-nav mr-auto">
+        <li tal:repeat="action actions"
+            tal:content="action" />
+      </ul>
+      <div id="sidebar-handle" role="button" tabindex="0">
+        <img class="icon icon-inline icon-lg" src="static/reha.siguv_theme/justify.svg" alt="Sign Sidebar" style="margin: -3px 5px 0 0 !important;">
+        <span>Menü</span>
+      </div>
+    </div>
+  </nav>
+</div>

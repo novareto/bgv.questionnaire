@@ -1,0 +1,22 @@
+<div id="portal-header" class="bg-light">
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-end">
+      <div class="align-middle">
+        <span class="site-action">
+          <a href="/preferences"
+             title="Meine Einstellungen">
+            <i class="bi-gear"></i>
+            <span>Meine Einstellungen</span>
+          </a>
+        </span>
+        <span class="site-action mr-0">
+          <a href="/logout"
+             title="Abmelden">
+            <i class="bi-box-arrow-right"></i>
+            <span>Logout</span>
+          </a>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
