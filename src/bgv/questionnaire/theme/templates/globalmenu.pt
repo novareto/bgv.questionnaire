@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg py-4" aria-label="hauptnavigation">
     <div class="container">
       <a class="navbar-brand" href="" tal:attributes="href request.application_uri" aria-label="Startseite">
-        <img src="static/reha.siguv_theme/bg-etem.svg" alt="Logo der BG ETEM" />
+        <img src="/static/bgv.questionnaire/logo.png" alt="Logo der BG Verkehr" />
       </a>
       <ul class="navbar-nav mr-auto">
         <li tal:repeat="action actions"

@@ -2,6 +2,7 @@ from reiter.ui import TemplateLoader
 from fanstatic import Library, Resource, Group
 from roughrider.application.request import Request
 from bgv.questionnaire.application import app, backend
+from reiter.ui.registry import UIRegistry
 
 
 TEMPLATES = TemplateLoader("./templates")
@@ -10,6 +11,21 @@ GLOBAL_MACROS = TEMPLATES['macros.pt'].macros
 
 library = Library("bgv.questionnaire", "./static")
 custom_css = Resource(library, "custom.css")
+
+bootstrap_css = Resource(
+    library,
+    "uvc_serviceportal_bootstrap.css",
+    compiler="sass",
+    source="scss/siguv.scss",
+)
+
+
+bootstrap_js = Resource(
+    library,
+    "bootstrap-5.1.3/dist/js/bootstrap.bundle.min.js",
+    bottom=True
+)
+
 
 
 @app.ui.register_layout(app.request_factory)
@@ -26,6 +42,8 @@ class Layout:
 
     def render(self, content, **namespace):
         custom_css.need()
+        bootstrap_css.need()
+        bootstrap_js.need()
         return self._template.render(
             layout=self, content=content, **namespace)
 

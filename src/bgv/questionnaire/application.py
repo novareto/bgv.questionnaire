@@ -7,7 +7,10 @@ from roughrider.application import WrappableApplication
 
 
 def new_ui(name):
-    return type(name, (UIRegistry,), {})()
+    def get_gm():
+        from bgv.questionaire.theme import GLOBAL_MACROS
+        return GLOBAL_MACROS
+    return type(name, (UIRegistry,), {'macros': get_gm})()
 
 
 @dataclass

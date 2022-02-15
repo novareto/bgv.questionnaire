@@ -110,7 +110,7 @@ router = fanstatic.Fanstatic(
         "/": app,
         "/backend": backend,
     }),
-    compile=False,
+    compile=True,
     recompute_hashes=True,
     bottom=True,
     publisher_signature="static"

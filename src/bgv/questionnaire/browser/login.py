@@ -4,6 +4,7 @@ from reiter.form import trigger
 from reiter.ui.components import FormPage
 from bgv.questionnaire.application import app, backend
 from bgv.questionnaire.browser import TEMPLATES
+from bgv.questionnaire.theme import GLOBAL_MACROS
 
 
 class Login(wtforms.Form):
@@ -26,6 +27,12 @@ class LoginForm(FormPage):
     title = "Anmelden"
     description = "Bitte tragen Sie hier Ihre Anmeldeinformationen ein"
     base_template = TEMPLATES['form.pt']
+
+    @property
+    def namespace(self):
+        ns = super(LoginForm, self).namespace
+        ns['macros'] = GLOBAL_MACROS
+        return ns
 
     @property
     def action(self):

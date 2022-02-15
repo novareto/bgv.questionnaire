@@ -38,3 +38,20 @@
     </div>
   </form>
 </div>
+
+
+<div id="form">
+  <h2 tal:content="view.title" />
+  <p class="lead" tal:content="view.description" />
+  <div tal:content="structure slot: above-form" />
+  <form method="post"
+        enctype="multipart/form-data"
+        tal:attributes="action view.action"
+        novalidate>
+      <div tal:repeat="field form" metal:use-macro="macros['form_group']"> </div>
+    <div class="form-actions">
+      <div tal:repeat="action actions.values()" metal:use-macro="macros['form_action']"> </div>
+    </div>
+  </form>
+</div>
+
