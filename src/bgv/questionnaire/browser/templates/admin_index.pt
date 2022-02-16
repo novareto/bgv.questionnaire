@@ -1,0 +1,10 @@
+<section>
+  <h1> Admin </h1>
+  <div class="row">
+    <div class="col-9">
+    </div>
+    <div class="col-3">
+      <a href="user.add" tal:attributes="href request.application_uri + '/add.user'"> Benutzer hinzufügen </a>
+    </div>
+  </div>
+</section>

@@ -12,7 +12,7 @@ class User(Base):
     name = Column(String)
     fullname = Column(String)
     email = Column(String)
-    answers = relationship("Answers")
+    answers = relationship("Answer")
 
 
 class Question(Base):

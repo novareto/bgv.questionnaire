@@ -1,4 +1,4 @@
-    <div class="form-group" metal:define-macro="form_group" tal:condition="exists: field" tal:attributes="id string:field-${field.id}">
+    <div class="form-group mb-3" metal:define-macro="form_group" tal:condition="exists: field" tal:attributes="id string:field-${field.id}">
       <label tal:replace="field.label"> </label> <span tal:replace="'*'" tal:condition="field.flags.required"></span>
       <div class="input-group has-validation">
       <div tal:replace="structure field()"> </div>

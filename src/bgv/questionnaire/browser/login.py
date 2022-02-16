@@ -1,12 +1,11 @@
 import wtforms
-import horseman.response
 from reiter.form import trigger
 from reiter.ui.components import FormPage
 from bgv.questionnaire.application import app, backend
-from bgv.questionnaire.browser import TEMPLATES
+from bgv.questionnaire.browser import Form
 
 
-class Login(wtforms.Form):
+class Login(Form):
 
     username = wtforms.StringField(
         'Benutzername',

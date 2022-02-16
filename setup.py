@@ -13,6 +13,7 @@ install_requires = [
     "roughrider.application",
     "roughrider.routing",
     "wtforms",
+    "WTForms-SQLAlchemy"
 ]
 
 test_requires = [
